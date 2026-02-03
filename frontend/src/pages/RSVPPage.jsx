@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Check, Heart } from "lucide-react";
+import { ArrowLeft, Check, Heart, Plus, Trash2, Users } from "lucide-react";
 import { toast } from "sonner";
 import axios from "axios";
 
@@ -10,35 +10,54 @@ var MENUS = ["Cu carne", "Vegetarian (cu peste)", "Vegetarian (fara peste)"];
 function RSVPPage() {
   var [loading, setLoading] = useState(false);
   var [submitted, setSubmitted] = useState(false);
-  var [name, setName] = useState("");
-  var [menu, setMenu] = useState("Cu carne");
-  var [hasGuest, setHasGuest] = useState(false);
-  var [guestName, setGuestName] = useState("");
-  var [guestMenu, setGuestMenu] = useState("Cu carne");
+  var [guests, setGuests] = useState([{ name: "", menu: "Cu carne" }]);
   var [message, setMessage] = useState("");
+
+  function addGuest() {
+    if (guests.length < 10) {
+      setGuests(guests.concat([{ name: "", menu: "Cu carne" }]));
+    }
+  }
+
+  function removeGuest(index) {
+    if (guests.length > 1) {
+      setGuests(guests.filter(function(_, i) { return i !== index; }));
+    }
+  }
+
+  function updateGuest(index, field, value) {
+    var newGuests = guests.map(function(g, i) {
+      if (i === index) {
+        var updated = {};
+        updated[field] = value;
+        return Object.assign({}, g, updated);
+      }
+      return g;
+    });
+    setGuests(newGuests);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!name.trim()) {
-      toast.error("Va rugam introduceti numele");
-      return;
-    }
-    if (hasGuest && !guestName.trim()) {
-      toast.error("Va rugam introduceti numele persoanei insotitoare");
+    
+    // Validare
+    var emptyGuest = guests.find(function(g) { return !g.name.trim(); });
+    if (emptyGuest) {
+      toast.error("Va rugam completati numele pentru toti invitatii");
       return;
     }
 
     setLoading(true);
-    var guests = [{ name: name, menu_type: menu }];
-    if (hasGuest) {
-      guests.push({ name: guestName, menu_type: guestMenu });
-    }
+    
+    var guestsList = guests.map(function(g) {
+      return { name: g.name, menu_type: g.menu };
+    });
 
     var payload = {
-      guest_name: name,
+      guest_name: guests[0].name,
       attending: true,
       num_guests: guests.length,
-      guests: guests,
+      guests: guestsList,
       allergies: "",
       message: message
     };
@@ -61,6 +80,7 @@ function RSVPPage() {
             <Check className="w-12 h-12 text-white" />
           </div>
           <h1 className="font-serif text-4xl md:text-5xl text-[#2C3E30] mb-4">Multumim!</h1>
+          <p className="text-[#5C6B5F] text-lg mb-2">Am inregistrat {guests.length} {guests.length === 1 ? "persoana" : "persoane"}.</p>
           <p className="text-[#5C6B5F] text-lg mb-8">Abia asteptam sa sarbatorim impreuna cu voi!</p>
           <Link to="/" className="inline-block px-8 py-4 bg-[#2C3E30] text-[#F9F7F2] font-serif rounded-full hover:bg-[#8DA399] hover:scale-105 transition-all duration-300" data-testid="back-home-btn">Inapoi la pagina principala</Link>
         </div>
@@ -90,103 +110,93 @@ function RSVPPage() {
             <p className="text-[#5C6B5F]">Va rugam sa confirmati participarea la nunta noastra</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-white p-8 md:p-10 rounded-3xl shadow-xl space-y-8 animate-fade-in" style={{animationDelay: "0.2s"}}>
-            {/* Persoana 1 */}
-            <div className="space-y-6">
-              <h3 className="font-serif text-xl text-[#2C3E30] border-b border-[#2C3E30]/10 pb-3">Datele dumneavoastra</h3>
-              
-              <div>
-                <label className="text-[#2C3E30] text-sm tracking-widest uppercase mb-3 block font-medium">Nume si prenume *</label>
-                <input 
-                  type="text" 
-                  value={name} 
-                  onChange={function(e) { setName(e.target.value); }} 
-                  className="w-full p-4 border-2 border-[#2C3E30]/10 bg-[#F9F7F2] rounded-xl focus:border-[#8DA399] focus:outline-none transition-all duration-300" 
-                  placeholder="ex: Ion Popescu" 
-                  data-testid="guest-name-input" 
-                />
-              </div>
+          <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in" style={{animationDelay: "0.2s"}}>
+            {/* Lista de invitati */}
+            {guests.map(function(guest, index) {
+              return (
+                <div key={index} className="bg-white p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-gradient-to-br from-[#8DA399] to-[#6B8A7A] rounded-full flex items-center justify-center text-white font-serif">
+                        {index + 1}
+                      </div>
+                      <h3 className="font-serif text-xl text-[#2C3E30]">
+                        {index === 0 ? "Datele dumneavoastra" : "Persoana " + (index + 1)}
+                      </h3>
+                    </div>
+                    {index > 0 && (
+                      <button 
+                        type="button"
+                        onClick={function() { removeGuest(index); }}
+                        className="w-10 h-10 rounded-full bg-red-50 text-[#B95D5D] flex items-center justify-center hover:bg-red-100 hover:scale-110 transition-all duration-300"
+                        data-testid={"remove-guest-" + index}
+                      >
+                        <Trash2 size={18} />
+                      </button>
+                    )}
+                  </div>
+                  
+                  <div className="space-y-5">
+                    <div>
+                      <label className="text-[#2C3E30] text-sm tracking-widest uppercase mb-3 block font-medium">Nume si prenume *</label>
+                      <input 
+                        type="text" 
+                        value={guest.name} 
+                        onChange={function(e) { updateGuest(index, "name", e.target.value); }} 
+                        className="w-full p-4 border-2 border-[#2C3E30]/10 bg-[#F9F7F2] rounded-xl focus:border-[#8DA399] focus:outline-none transition-all duration-300" 
+                        placeholder={index === 0 ? "ex: Ion Popescu" : "ex: Maria Popescu"}
+                        data-testid={"guest-name-" + index}
+                      />
+                    </div>
 
-              <div>
-                <label className="text-[#2C3E30] text-sm tracking-widest uppercase mb-3 block font-medium">Preferinta meniu *</label>
-                <div className="space-y-3">
-                  {MENUS.map(function(m) {
-                    return (
-                      <label key={m} className={"flex items-center p-4 rounded-xl cursor-pointer transition-all duration-300 " + (menu === m ? "bg-gradient-to-r from-[#E3EBE6] to-[#D4E5DA] border-2 border-[#8DA399] shadow-md" : "bg-[#F9F7F2] border-2 border-[#2C3E30]/10 hover:border-[#8DA399]/50 hover:shadow-sm")}>
-                        <input 
-                          type="radio" 
-                          name="menu1" 
-                          value={m} 
-                          checked={menu === m} 
-                          onChange={function(e) { setMenu(e.target.value); }} 
-                          className="w-5 h-5 mr-4 accent-[#8DA399]"
-                          data-testid={"menu-" + m.replace(/[^a-zA-Z]/g, "")}
-                        />
-                        <span className="text-[#2C3E30] font-medium">{m}</span>
-                      </label>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* Checkbox persoana 2 */}
-            <div className="border-t border-[#2C3E30]/10 pt-6">
-              <label className={"flex items-center cursor-pointer group p-4 rounded-xl transition-all duration-300 " + (hasGuest ? "bg-[#E3EBE6]" : "hover:bg-[#F0EFEA]")}>
-                <input 
-                  type="checkbox" 
-                  checked={hasGuest} 
-                  onChange={function(e) { setHasGuest(e.target.checked); }} 
-                  className="w-6 h-6 mr-4 accent-[#8DA399] rounded"
-                  data-testid="has-guest-checkbox"
-                />
-                <span className="text-[#2C3E30] font-medium group-hover:text-[#8DA399] transition-colors duration-300">Vin cu inca o persoana</span>
-              </label>
-            </div>
-
-            {/* Persoana 2 */}
-            {hasGuest && (
-              <div className="space-y-6 p-6 bg-gradient-to-br from-[#F0EFEA] to-[#E8E6E0] rounded-2xl animate-fade-in">
-                <h3 className="font-serif text-xl text-[#2C3E30] border-b border-[#2C3E30]/10 pb-3">Persoana insotitoare</h3>
-                
-                <div>
-                  <label className="text-[#2C3E30] text-sm tracking-widest uppercase mb-3 block font-medium">Nume si prenume *</label>
-                  <input 
-                    type="text" 
-                    value={guestName} 
-                    onChange={function(e) { setGuestName(e.target.value); }} 
-                    className="w-full p-4 border-2 border-[#2C3E30]/10 bg-white rounded-xl focus:border-[#8DA399] focus:outline-none transition-all duration-300" 
-                    placeholder="ex: Maria Popescu" 
-                    data-testid="guest2-name-input" 
-                  />
-                </div>
-
-                <div>
-                  <label className="text-[#2C3E30] text-sm tracking-widest uppercase mb-3 block font-medium">Preferinta meniu *</label>
-                  <div className="space-y-3">
-                    {MENUS.map(function(m) {
-                      return (
-                        <label key={m} className={"flex items-center p-4 rounded-xl cursor-pointer transition-all duration-300 " + (guestMenu === m ? "bg-gradient-to-r from-[#E3EBE6] to-[#D4E5DA] border-2 border-[#8DA399] shadow-md" : "bg-white border-2 border-[#2C3E30]/10 hover:border-[#8DA399]/50 hover:shadow-sm")}>
-                          <input 
-                            type="radio" 
-                            name="menu2" 
-                            value={m} 
-                            checked={guestMenu === m} 
-                            onChange={function(e) { setGuestMenu(e.target.value); }} 
-                            className="w-5 h-5 mr-4 accent-[#8DA399]"
-                            data-testid={"guest2-menu-" + m.replace(/[^a-zA-Z]/g, "")}
-                          />
-                          <span className="text-[#2C3E30] font-medium">{m}</span>
-                        </label>
-                      );
-                    })}
+                    <div>
+                      <label className="text-[#2C3E30] text-sm tracking-widest uppercase mb-3 block font-medium">Preferinta meniu *</label>
+                      <div className="space-y-2">
+                        {MENUS.map(function(m) {
+                          var isSelected = guest.menu === m;
+                          return (
+                            <label key={m} className={"flex items-center p-4 rounded-xl cursor-pointer transition-all duration-300 " + (isSelected ? "bg-gradient-to-r from-[#E3EBE6] to-[#D4E5DA] border-2 border-[#8DA399] shadow-md" : "bg-[#F9F7F2] border-2 border-[#2C3E30]/10 hover:border-[#8DA399]/50 hover:shadow-sm")}>
+                              <input 
+                                type="radio" 
+                                name={"menu-" + index} 
+                                value={m} 
+                                checked={isSelected} 
+                                onChange={function(e) { updateGuest(index, "menu", e.target.value); }} 
+                                className="w-5 h-5 mr-4 accent-[#8DA399]"
+                                data-testid={"guest-" + index + "-menu-" + m.replace(/[^a-zA-Z]/g, "")}
+                              />
+                              <span className="text-[#2C3E30] font-medium">{m}</span>
+                            </label>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              );
+            })}
+
+            {/* Buton adauga persoana */}
+            {guests.length < 10 && (
+              <button 
+                type="button"
+                onClick={addGuest}
+                className="w-full p-5 border-2 border-dashed border-[#8DA399]/50 rounded-2xl text-[#8DA399] font-medium flex items-center justify-center gap-3 hover:border-[#8DA399] hover:bg-[#E3EBE6]/30 hover:scale-[1.02] transition-all duration-300"
+                data-testid="add-guest-btn"
+              >
+                <Plus size={22} />
+                Adauga persoana (copil, sot/sotie, etc.)
+              </button>
             )}
 
+            {/* Numar persoane */}
+            <div className="flex items-center justify-center gap-2 py-4 text-[#5C6B5F]">
+              <Users size={20} />
+              <span>Total: <strong className="text-[#2C3E30]">{guests.length}</strong> {guests.length === 1 ? "persoana" : "persoane"}</span>
+            </div>
+
             {/* Mesaj optional */}
-            <div>
+            <div className="bg-white p-6 md:p-8 rounded-3xl shadow-lg">
               <label className="text-[#2C3E30] text-sm tracking-widest uppercase mb-3 block font-medium">Mesaj pentru miri (optional)</label>
               <textarea 
                 value={message} 
@@ -201,11 +211,11 @@ function RSVPPage() {
             <button 
               type="submit" 
               disabled={loading} 
-              className="w-full py-4 bg-[#2C3E30] text-[#F9F7F2] font-serif text-lg tracking-wide rounded-full hover:bg-[#8DA399] hover:shadow-xl transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2"
+              className="w-full py-5 bg-[#2C3E30] text-[#F9F7F2] font-serif text-lg tracking-wide rounded-full hover:bg-[#8DA399] hover:shadow-xl transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-3"
               data-testid="submit-rsvp-btn"
             >
-              {loading ? <span className="loading-spinner"></span> : null}
-              {loading ? "Se trimite..." : "Confirma Prezenta"}
+              {loading ? <span className="loading-spinner"></span> : <Check size={22} />}
+              {loading ? "Se trimite..." : "Confirma " + guests.length + " " + (guests.length === 1 ? "persoana" : "persoane")}
             </button>
           </form>
         </div>
