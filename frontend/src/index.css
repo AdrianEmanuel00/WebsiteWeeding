@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-bg: #F9F7F2;
+  --color-bg: #FAF8F5;
   --color-paper: #FFFFFF;
-  --color-muted: #F0EFEA;
-  --color-text: #2C3E30;
-  --color-text-secondary: #5C6B5F;
-  --color-sage: #8DA399;
-  --color-sage-light: #E3EBE6;
-  --color-gold: #D4AF37;
-  --color-gold-muted: #C5A028;
+  --color-muted: #F0EDE8;
+  --color-text: #3D4F4F;
+  --color-text-secondary: #6B7B7B;
+  --color-sage: #7D9B8C;
+  --color-sage-light: #E8E4DF;
+  --color-gold: #B8977E;
+  --color-gold-muted: #9A7D66;
   --color-error: #B95D5D;
 }
 
@@ -35,6 +35,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
 }
 
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
 .font-accent {
   font-family: 'Cormorant Garamond', serif;
 }
@@ -42,24 +46,24 @@ h1, h2, h3, h4, h5, h6 {
 @layer base {
   :root {
     --background: 45 29% 97%;
-    --foreground: 135 18% 21%;
+    --foreground: 180 14% 27%;
     --card: 0 0% 100%;
-    --card-foreground: 135 18% 21%;
+    --card-foreground: 180 14% 27%;
     --popover: 0 0% 100%;
-    --popover-foreground: 135 18% 21%;
-    --primary: 135 18% 21%;
+    --popover-foreground: 180 14% 27%;
+    --primary: 180 14% 27%;
     --primary-foreground: 45 29% 97%;
-    --secondary: 45 11% 93%;
-    --secondary-foreground: 135 18% 21%;
-    --muted: 45 11% 93%;
-    --muted-foreground: 132 8% 40%;
-    --accent: 43 64% 52%;
-    --accent-foreground: 135 18% 21%;
+    --secondary: 30 15% 93%;
+    --secondary-foreground: 180 14% 27%;
+    --muted: 30 15% 93%;
+    --muted-foreground: 180 8% 46%;
+    --accent: 25 27% 61%;
+    --accent-foreground: 180 14% 27%;
     --destructive: 0 50% 55%;
     --destructive-foreground: 45 29% 97%;
-    --border: 135 18% 21% / 0.1;
-    --input: 135 18% 21% / 0.1;
-    --ring: 138 16% 58%;
+    --border: 180 14% 27% / 0.1;
+    --input: 180 14% 27% / 0.1;
+    --ring: 144 13% 55%;
     --radius: 1rem;
   }
 }
@@ -124,15 +128,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
 @keyframes scaleIn {
   from {
     opacity: 0;
@@ -141,28 +136,6 @@ h1, h2, h3, h4, h5, h6 {
   to {
     opacity: 1;
     transform: scale(1);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 
@@ -181,14 +154,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-scale-in {
   animation: scaleIn 0.6s ease-out forwards;
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.6s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out forwards;
 }
 
 /* Selection */

@@ -28,7 +28,7 @@ function HomePage() {
       {/* Navigation */}
       <nav className={"fixed top-0 left-0 right-0 z-50 bg-[#FAF8F5]/80 backdrop-blur-md border-b border-[#3D4F4F]/5 transition-all duration-700 " + (visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0")}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link to="/" className="font-serif text-xl text-[#3D4F4F] hover:text-[#7D9B8C] transition-colors duration-300" data-testid="nav-logo">S & A</Link>
+          <Link to="/" className="font-script text-3xl text-[#3D4F4F] hover:text-[#7D9B8C] transition-colors duration-300" data-testid="nav-logo">S & A</Link>
           <div className="hidden md:flex items-center gap-8">
             <button onClick={function() { scrollTo("details"); }} className="text-sm tracking-widest uppercase text-[#6B7B7B] hover:text-[#7D9B8C] transition-colors duration-300" data-testid="nav-details">Detalii</button>
             <button onClick={function() { scrollTo("locations"); }} className="text-sm tracking-widest uppercase text-[#6B7B7B] hover:text-[#7D9B8C] transition-colors duration-300" data-testid="nav-locations">Locatii</button>
@@ -42,16 +42,16 @@ function HomePage() {
         <div className="absolute inset-0 bg-cover bg-center scale-105" style={{ backgroundImage: "url('" + HERO_IMAGE + "')" }}></div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/20 via-[#FAF8F5]/40 to-[#FAF8F5]"></div>
         <div className={"relative z-10 px-6 transition-all duration-1000 " + (visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0")}>
-          <p className="text-sm tracking-[0.3em] uppercase text-[#5A6B6B] mb-6 animate-fade-in" style={{animationDelay: "0.2s"}}>Va invitam la nunta noastra</p>
-          <h1 className="font-serif text-6xl md:text-8xl font-medium text-[#3D4F4F] mb-4">
+          <p className="text-sm tracking-[0.3em] uppercase text-[#5A6B6B] mb-8 animate-fade-in font-medium" style={{animationDelay: "0.2s"}}>Va invitam la nunta noastra</p>
+          <h1 className="font-script text-7xl md:text-9xl text-[#3D4F4F] mb-6 leading-tight">
             <span className="inline-block animate-fade-in" style={{animationDelay: "0.4s"}}>Sara</span>
-            <span className="text-[#B8977E] mx-4 inline-block animate-pulse">&</span>
+            <span className="text-[#B8977E] mx-2 md:mx-4 inline-block animate-pulse font-serif text-5xl md:text-7xl">&</span>
             <span className="inline-block animate-fade-in" style={{animationDelay: "0.6s"}}>Adrian</span>
           </h1>
           <div className="flex items-center justify-center gap-4 text-[#5A6B6B] mb-12 animate-fade-in" style={{animationDelay: "0.8s"}}>
-            <span className="w-12 h-px bg-[#7D9B8C]"></span>
-            <span className="font-accent text-2xl italic">28 Iunie 2026</span>
-            <span className="w-12 h-px bg-[#7D9B8C]"></span>
+            <span className="w-16 h-px bg-[#7D9B8C]"></span>
+            <span className="font-accent text-2xl md:text-3xl italic">28 Iunie 2026</span>
+            <span className="w-16 h-px bg-[#7D9B8C]"></span>
           </div>
           <Link to="/rsvp" className="inline-block px-10 py-4 bg-[#3D4F4F] text-[#FAF8F5] font-serif text-lg rounded-full hover:bg-[#7D9B8C] hover:scale-105 hover:shadow-xl transition-all duration-300 animate-fade-in" style={{animationDelay: "1s"}} data-testid="hero-rsvp-btn">Confirma Prezenta</Link>
         </div>
@@ -65,21 +65,21 @@ function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-sm tracking-[0.2em] uppercase text-[#7D9B8C] mb-4">Salveaza data</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#3D4F4F]">28 Iunie 2026</h2>
+            <h2 className="font-script text-5xl md:text-6xl text-[#3D4F4F]">28 Iunie 2026</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="text-center p-10 bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
               <div className="w-16 h-16 bg-[#E8E4DF] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#7D9B8C] group-hover:scale-110 transition-all duration-300">
                 <Calendar className="w-8 h-8 text-[#7D9B8C] group-hover:text-white transition-colors duration-300" />
               </div>
-              <h3 className="font-serif text-2xl text-[#3D4F4F] mb-3">Data</h3>
+              <h3 className="font-script text-3xl text-[#3D4F4F] mb-3">Data</h3>
               <p className="text-[#6B7B7B] text-lg">Duminica, 28 Iunie 2026</p>
             </div>
             <div className="text-center p-10 bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
               <div className="w-16 h-16 bg-[#E8E4DF] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#7D9B8C] group-hover:scale-110 transition-all duration-300">
                 <Clock className="w-8 h-8 text-[#7D9B8C] group-hover:text-white transition-colors duration-300" />
               </div>
-              <h3 className="font-serif text-2xl text-[#3D4F4F] mb-3">Ora</h3>
+              <h3 className="font-script text-3xl text-[#3D4F4F] mb-3">Ora</h3>
               <p className="text-[#6B7B7B] text-lg">Ceremonia: 15:00</p>
               <p className="text-[#6B7B7B] text-lg">Restaurant: 18:00</p>
             </div>
@@ -92,7 +92,7 @@ function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-sm tracking-[0.2em] uppercase text-[#7D9B8C] mb-4">Unde ne vedem</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#3D4F4F]">Locatii</h2>
+            <h2 className="font-script text-5xl md:text-6xl text-[#3D4F4F]">Locatii</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Ceremonia */}
@@ -103,14 +103,14 @@ function HomePage() {
                 </div>
                 <div>
                   <p className="text-sm tracking-widest uppercase text-[#7D9B8C] mb-1">Ceremonia religioasa</p>
-                  <h3 className="font-serif text-2xl text-[#3D4F4F]">Biserica Adventista Brancoveanu</h3>
+                  <h3 className="font-script text-2xl md:text-3xl text-[#3D4F4F]">Biserica Adventista Brancoveanu</h3>
                 </div>
               </div>
               <p className="text-[#6B7B7B] mb-2 text-lg">Bucuresti, Romania</p>
               <p className="text-[#7D9B8C] font-medium mb-8">Ora: 15:00</p>
               <div className="flex flex-wrap gap-3">
-                <a href="https://www.google.com/maps/search/?api=1&query=Biserica+Adventista+Brancoveanu+Bucuresti" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#3D4F4F] text-[#FAF8F5] font-serif text-sm rounded-full hover:bg-[#7D9B8C] hover:scale-105 transition-all duration-300" data-testid="church-maps-btn"><ExternalLink size={16} /> Google Maps</a>
-                <a href="https://waze.com/ul?q=Biserica+Adventista+Brancoveanu+Bucuresti" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#3D4F4F] text-[#3D4F4F] font-serif text-sm rounded-full hover:bg-[#3D4F4F] hover:text-[#FAF8F5] hover:scale-105 transition-all duration-300" data-testid="church-waze-btn"><Navigation size={16} /> Waze</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Biserica+Adventista+Brancoveanu+Bucuresti" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#3D4F4F] text-[#FAF8F5] font-medium text-sm rounded-full hover:bg-[#7D9B8C] hover:scale-105 transition-all duration-300" data-testid="church-maps-btn"><ExternalLink size={16} /> Google Maps</a>
+                <a href="https://waze.com/ul?q=Biserica+Adventista+Brancoveanu+Bucuresti" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#3D4F4F] text-[#3D4F4F] font-medium text-sm rounded-full hover:bg-[#3D4F4F] hover:text-[#FAF8F5] hover:scale-105 transition-all duration-300" data-testid="church-waze-btn"><Navigation size={16} /> Waze</a>
               </div>
             </div>
             {/* Restaurant */}
@@ -121,14 +121,14 @@ function HomePage() {
                 </div>
                 <div>
                   <p className="text-sm tracking-widest uppercase text-[#B8977E] mb-1">Restaurant</p>
-                  <h3 className="font-serif text-2xl text-[#3D4F4F]">Domeniul Monato</h3>
+                  <h3 className="font-script text-2xl md:text-3xl text-[#3D4F4F]">Domeniul Monato</h3>
                 </div>
               </div>
               <p className="text-[#6B7B7B] mb-2 text-lg">Bolintin-Vale, Giurgiu</p>
               <p className="text-[#B8977E] font-medium mb-8">Ora: 18:00</p>
               <div className="flex flex-wrap gap-3">
-                <a href="https://www.google.com/maps/search/?api=1&query=Domeniul+Monato+Bolintin+Vale" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#3D4F4F] text-[#FAF8F5] font-serif text-sm rounded-full hover:bg-[#B8977E] hover:scale-105 transition-all duration-300" data-testid="venue-maps-btn"><ExternalLink size={16} /> Google Maps</a>
-                <a href="https://waze.com/ul?q=Domeniul+Monato+Bolintin+Vale" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#3D4F4F] text-[#3D4F4F] font-serif text-sm rounded-full hover:bg-[#3D4F4F] hover:text-[#FAF8F5] hover:scale-105 transition-all duration-300" data-testid="venue-waze-btn"><Navigation size={16} /> Waze</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Domeniul+Monato+Bolintin+Vale" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#3D4F4F] text-[#FAF8F5] font-medium text-sm rounded-full hover:bg-[#B8977E] hover:scale-105 transition-all duration-300" data-testid="venue-maps-btn"><ExternalLink size={16} /> Google Maps</a>
+                <a href="https://waze.com/ul?q=Domeniul+Monato+Bolintin+Vale" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#3D4F4F] text-[#3D4F4F] font-medium text-sm rounded-full hover:bg-[#3D4F4F] hover:text-[#FAF8F5] hover:scale-105 transition-all duration-300" data-testid="venue-waze-btn"><Navigation size={16} /> Waze</a>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ function HomePage() {
             <div className="w-20 h-20 bg-gradient-to-br from-[#7D9B8C] to-[#5A7A6B] rounded-full flex items-center justify-center mb-8 shadow-lg">
               <Heart className="w-10 h-10 text-white" />
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#3D4F4F] mb-6">Va asteptam cu drag!</h2>
+            <h2 className="font-script text-5xl md:text-6xl text-[#3D4F4F] mb-6">Va asteptam cu drag!</h2>
             <p className="text-[#6B7B7B] text-lg mb-10">Confirmati participarea voastra pentru a ne ajuta cu organizarea acestei zile speciale.</p>
             <Link to="/rsvp" className="inline-block px-12 py-5 bg-[#3D4F4F] text-[#FAF8F5] font-serif text-lg rounded-full hover:bg-[#7D9B8C] hover:scale-105 hover:shadow-xl transition-all duration-300" data-testid="cta-rsvp-btn">Confirma Prezenta</Link>
           </div>
@@ -155,7 +155,7 @@ function HomePage() {
       <section id="program" className="py-24 md:py-32 px-6 bg-gradient-to-b from-[#FAF8F5] to-[#F0EDE8]">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm tracking-[0.2em] uppercase text-[#7D9B8C] mb-4">Programul zilei</p>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#3D4F4F] mb-12">Program</h2>
+          <h2 className="font-script text-5xl md:text-6xl text-[#3D4F4F] mb-12">Program</h2>
           <div className="p-12 bg-white rounded-3xl shadow-lg">
             <p className="font-accent text-2xl italic text-[#6B7B7B]">Programul detaliat va fi publicat in curand.</p>
             <p className="text-[#7D9B8C] mt-4">Va multumim pentru rabdare!</p>
@@ -168,7 +168,7 @@ function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-sm tracking-[0.2em] uppercase text-[#7D9B8C] mb-4">Amintiri</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#3D4F4F]">Galerie</h2>
+            <h2 className="font-script text-5xl md:text-6xl text-[#3D4F4F]">Galerie</h2>
           </div>
           {galleryPhotos.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
@@ -194,7 +194,7 @@ function HomePage() {
       <footer className="py-12 px-6 bg-[#3D4F4F] text-[#FAF8F5]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
-            <h3 className="font-serif text-3xl mb-2">Sara & Adrian</h3>
+            <h3 className="font-script text-4xl mb-2">Sara & Adrian</h3>
             <p className="text-[#7D9B8C]">28 Iunie 2026</p>
           </div>
           <div className="flex flex-wrap justify-center gap-8 mb-8 text-sm">
