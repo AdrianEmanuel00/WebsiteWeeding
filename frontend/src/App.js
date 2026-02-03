@@ -4,7 +4,6 @@ import { Toaster } from "@/components/ui/sonner";
 import HomePage from "@/pages/HomePage";
 import RSVPPage from "@/pages/RSVPPage";
 import GalleryPage from "@/pages/GalleryPage";
-import AdminPage from "@/pages/AdminPage";
 import PrivacyPage from "@/pages/PrivacyPage";
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/rsvp" element={<RSVPPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/admin" element={<AdminPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </BrowserRouter>
