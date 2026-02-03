@@ -1,0 +1,171 @@
+{
+  "design_system": {
+    "typography": {
+      "font_family": {
+        "heading": "Playfair Display, serif",
+        "body": "Lato, sans-serif",
+        "accent": "Cormorant Garamond, serif"
+      },
+      "scale": {
+        "h1": "text-5xl md:text-7xl font-medium tracking-tight",
+        "h2": "text-4xl md:text-5xl font-normal tracking-tight",
+        "h3": "text-2xl md:text-3xl font-normal",
+        "body": "text-base md:text-lg leading-relaxed",
+        "caption": "text-sm tracking-widest uppercase"
+      }
+    },
+    "colors": {
+      "palette": {
+        "background": {
+          "default": "#F9F7F2",
+          "paper": "#FFFFFF",
+          "muted": "#F0EFEA"
+        },
+        "text": {
+          "primary": "#2C3E30",
+          "secondary": "#5C6B5F",
+          "accent": "#D4AF37"
+        },
+        "brand": {
+          "sage": "#8DA399",
+          "sage_light": "#E3EBE6",
+          "gold": "#D4AF37",
+          "gold_muted": "#C5A028"
+        },
+        "status": {
+          "success": "#8DA399",
+          "error": "#B95D5D"
+        }
+      },
+      "usage": {
+        "primary_button": "bg-[#2C3E30] text-white hover:bg-[#1A261D]",
+        "secondary_button": "bg-transparent border border-[#2C3E30] text-[#2C3E30] hover:bg-[#2C3E30] hover:text-white",
+        "accent_element": "text-[#D4AF37]"
+      }
+    },
+    "spacing": {
+      "container": "max-w-7xl mx-auto px-6 md:px-12",
+      "section_padding": "py-20 md:py-32",
+      "element_gap": "gap-8 md:gap-12"
+    },
+    "visual_enhancers": {
+      "radius": "rounded-none md:rounded-sm",
+      "shadow": "shadow-[0_4px_20px_rgba(44,62,48,0.05)]",
+      "borders": "border border-[#2C3E30]/10",
+      "glass": "bg-[#F9F7F2]/80 backdrop-blur-md border-b border-[#2C3E30]/5"
+    },
+    "animation": {
+      "transition": "transition-all duration-500 ease-out",
+      "hover": "hover:-translate-y-1 hover:shadow-lg",
+      "entrance": "animate-in fade-in slide-in-from-bottom-8 duration-700"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "px-8 py-4 bg-[#2C3E30] text-[#F9F7F2] font-serif text-lg tracking-wide hover:bg-[#1A261D] transition-all duration-300 rounded-sm",
+      "secondary": "px-8 py-4 border border-[#2C3E30] text-[#2C3E30] font-serif text-lg tracking-wide hover:bg-[#2C3E30] hover:text-[#F9F7F2] transition-all duration-300 rounded-sm",
+      "ghost": "text-[#2C3E30] hover:text-[#8DA399] font-sans uppercase tracking-widest text-sm transition-colors"
+    },
+    "cards": {
+      "location": "bg-white p-8 border border-[#2C3E30]/5 shadow-sm hover:shadow-md transition-all duration-300",
+      "feature": "bg-[#F0EFEA] p-10 text-center"
+    },
+    "inputs": {
+      "default": "bg-transparent border-b border-[#2C3E30]/20 px-0 py-4 text-[#2C3E30] placeholder:text-[#2C3E30]/40 focus:border-[#8DA399] focus:outline-none rounded-none transition-colors"
+    }
+  },
+  "layout_strategies": {
+    "home_hero": {
+      "structure": "h-screen flex flex-col justify-center items-center text-center relative overflow-hidden",
+      "elements": "Background image with overlay, centered typography, floating 'Scroll' indicator"
+    },
+    "bento_grid": {
+      "structure": "grid grid-cols-1 md:grid-cols-12 gap-6",
+      "items": {
+        "hero": "col-span-1 md:col-span-8 row-span-2",
+        "standard": "col-span-1 md:col-span-4",
+        "tall": "col-span-1 md:col-span-4 row-span-2"
+      }
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_couple": {
+        "url": "https://images.unsplash.com/photo-1647170353231-e053570a4a54?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Sara and Adrian romantic portrait",
+        "usage": "Hero section background"
+      },
+      "venue_garden": {
+        "url": "https://images.unsplash.com/photo-1675808414213-2b7c7daabf51?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Wedding venue garden",
+        "usage": "Locations section"
+      },
+      "party_vibes": {
+        "url": "https://images.unsplash.com/photo-1769230365519-aa3069692400?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Wedding party dancing",
+        "usage": "Program/Party section"
+      },
+      "food_menu": {
+        "url": "https://images.unsplash.com/photo-1474221379956-afaf88e3d760?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Elegant plated dinner",
+        "usage": "RSVP Menu section"
+      },
+      "details_decor": {
+        "url": "https://images.unsplash.com/photo-1528696466037-2883fc6c2d4a?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Floral details",
+        "usage": "Decorative inserts"
+      }
+    },
+    "icons": {
+      "library": "lucide-react",
+      "style": "stroke-1 text-[#2C3E30]"
+    }
+  },
+  "instructions_to_main_agent": {
+    "general": "Build a romantic, high-end wedding website. Focus on typography and whitespace. Do not use standard 'SaaS' layouts. Think 'Vogue' or 'Kinfolk' magazine layout.",
+    "pages": [
+      {
+        "name": "Home",
+        "path": "/",
+        "type": "One-page Scroll",
+        "sections": ["Hero", "Quick Details", "Our Story", "Locations", "Program", "Gallery Preview", "RSVP CTA", "Footer"]
+      },
+      {
+        "name": "RSVP",
+        "path": "/rsvp",
+        "type": "Functional Form",
+        "features": ["Step-by-step wizard", "Guest count", "Menu selection", "Dietary restrictions"]
+      },
+      {
+        "name": "Gallery",
+        "path": "/gallery",
+        "type": "Grid + Upload",
+        "features": ["Masonry layout", "Upload button", "Lightbox view"]
+      },
+      {
+        "name": "Admin",
+        "path": "/admin",
+        "type": "Dashboard",
+        "features": ["Guest list table", "Photo moderation grid", "Stats overview"]
+      }
+    ],
+    "technical": {
+      "framework": "React + Tailwind",
+      "components": "Use Shadcn for complex interactions (Dialog, Form, Select), but style them to match the 'Romantic' theme (remove default borders, add serif fonts).",
+      "animations": "Use 'framer-motion' for scroll reveals. Text should fade up slowly."
+    }
+  },
+  "universal_guidelines": {
+    "do_not": [
+      "Use generic 'Inter' font for headings",
+      "Use bright/neon colors",
+      "Use standard Bootstrap-style grids",
+      "Center everything (use asymmetry for interest)"
+    ],
+    "must_do": [
+      "Use 'Playfair Display' for all headings",
+      "Ensure mobile responsiveness is perfect (stack columns, adjust padding)",
+      "Add 'data-testid' to all interactive elements"
+    ]
+  }
+}
