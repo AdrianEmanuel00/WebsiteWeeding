@@ -1,13 +1,10 @@
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import HomePage from "@/pages/HomePage";
 import RSVPPage from "@/pages/RSVPPage";
 import GalleryPage from "@/pages/GalleryPage";
 import PrivacyPage from "@/pages/PrivacyPage";
-import React from "react";
-
-const AdminPage = React.lazy(() => import("@/pages/AdminPage"));
 
 function App() {
   return (
@@ -17,7 +14,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/rsvp" element={<RSVPPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/admin" element={<React.Suspense fallback={<div>Loading...</div>}><AdminPage /></React.Suspense>} />
+          <Route path="/admin" element={<Navigate to="/admin-panel" replace />} />
           <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </BrowserRouter>
