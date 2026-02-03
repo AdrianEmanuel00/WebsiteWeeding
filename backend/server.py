@@ -252,11 +252,12 @@ async def upload_photo(
     with open(file_path, 'wb') as f:
         f.write(content)
     
-    # Create photo record
+    # Create photo record - auto approved
     photo = Photo(
         filename=unique_filename,
         original_filename=file.filename,
-        uploader_name=uploader_name
+        uploader_name=uploader_name,
+        status="approved"
     )
     await db.photos.insert_one(photo.model_dump())
     

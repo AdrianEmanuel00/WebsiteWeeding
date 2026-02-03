@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Calendar, Clock, Camera, ChevronDown, Navigation, ExternalLink } from "lucide-react";
+import { MapPin, Calendar, Clock, Camera, ChevronDown, Navigation, ExternalLink, Heart } from "lucide-react";
 import axios from "axios";
 
 var API = process.env.REACT_APP_BACKEND_URL + "/api";
@@ -21,7 +21,7 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#F9F7F2]">
-      {/* Navigation */}
+      {/* Navigation - fara RSVP */}
       <nav className={"fixed top-0 left-0 right-0 z-50 bg-[#F9F7F2]/80 backdrop-blur-md border-b border-[#2C3E30]/5 transition-all duration-700 " + (visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0")}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link to="/" className="font-serif text-xl text-[#2C3E30] hover:text-[#8DA399] transition-colors duration-300" data-testid="nav-logo">S & A</Link>
@@ -29,9 +29,7 @@ function HomePage() {
             <button onClick={function() { scrollTo("details"); }} className="text-sm tracking-widest uppercase text-[#5C6B5F] hover:text-[#8DA399] transition-colors duration-300" data-testid="nav-details">Detalii</button>
             <button onClick={function() { scrollTo("locations"); }} className="text-sm tracking-widest uppercase text-[#5C6B5F] hover:text-[#8DA399] transition-colors duration-300" data-testid="nav-locations">Locatii</button>
             <Link to="/gallery" className="text-sm tracking-widest uppercase text-[#5C6B5F] hover:text-[#8DA399] transition-colors duration-300" data-testid="nav-gallery">Galerie</Link>
-            <Link to="/rsvp" className="px-6 py-2.5 bg-[#2C3E30] text-[#F9F7F2] font-serif text-sm rounded-full hover:bg-[#8DA399] hover:scale-105 transition-all duration-300" data-testid="nav-rsvp">Confirma Prezenta</Link>
           </div>
-          <Link to="/rsvp" className="md:hidden px-5 py-2 bg-[#2C3E30] text-[#F9F7F2] font-serif text-sm rounded-full" data-testid="nav-rsvp-mobile">RSVP</Link>
         </div>
       </nav>
 
@@ -78,7 +76,7 @@ function HomePage() {
                 <Clock className="w-8 h-8 text-[#8DA399] group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="font-serif text-2xl text-[#2C3E30] mb-3">Ora</h3>
-              <p className="text-[#5C6B5F] text-lg">Ceremonia religioasă: 15:00</p>
+              <p className="text-[#5C6B5F] text-lg">Ceremonia: 15:00</p>
               <p className="text-[#5C6B5F] text-lg">Restaurant: 18:00</p>
             </div>
           </div>
@@ -93,7 +91,7 @@ function HomePage() {
             <h2 className="font-serif text-4xl md:text-5xl text-[#2C3E30]">Locatii</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Ceremonia religioasă */}
+            {/* Ceremonia */}
             <div className="bg-white p-8 md:p-10 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#8DA399] to-[#6B8A7A] flex items-center justify-center flex-shrink-0 shadow-lg">
@@ -133,8 +131,21 @@ function HomePage() {
         </div>
       </section>
 
+      {/* RSVP CTA - MUTAT AICI */}
+      <section className="py-24 md:py-32 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1528696466037-2883fc6c2d4a?w=1920&q=80')" }}></div>
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <div className="w-20 h-20 bg-gradient-to-br from-[#8DA399] to-[#6B8A7A] rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+            <Heart className="w-10 h-10 text-white" />
+          </div>
+          <h2 className="font-serif text-4xl md:text-5xl text-[#2C3E30] mb-6">Va asteptam cu drag!</h2>
+          <p className="text-[#5C6B5F] text-lg mb-10 max-w-xl mx-auto">Confirmati participarea voastra pentru a ne ajuta cu organizarea acestei zile speciale.</p>
+          <Link to="/rsvp" className="inline-block px-12 py-5 bg-[#2C3E30] text-[#F9F7F2] font-serif text-lg rounded-full hover:bg-[#8DA399] hover:scale-105 hover:shadow-xl transition-all duration-300" data-testid="cta-rsvp-btn">Confirma Prezenta</Link>
+        </div>
+      </section>
+
       {/* Program */}
-      <section id="program" className="py-24 md:py-32 px-6">
+      <section id="program" className="py-24 md:py-32 px-6 bg-gradient-to-b from-[#F9F7F2] to-[#F0EFEA]">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm tracking-[0.2em] uppercase text-[#8DA399] mb-4">Programul zilei</p>
           <h2 className="font-serif text-4xl md:text-5xl text-[#2C3E30] mb-12">Program</h2>
@@ -146,7 +157,7 @@ function HomePage() {
       </section>
 
       {/* Gallery Preview */}
-      <section className="py-24 md:py-32 px-6 bg-gradient-to-b from-[#F9F7F2] to-[#F0EFEA]">
+      <section className="py-24 md:py-32 px-6 bg-[#F0EFEA]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-sm tracking-[0.2em] uppercase text-[#8DA399] mb-4">Amintiri</p>
@@ -169,16 +180,6 @@ function HomePage() {
           <div className="text-center">
             <Link to="/gallery" className="inline-flex items-center gap-3 px-10 py-4 bg-[#2C3E30] text-[#F9F7F2] font-serif text-lg rounded-full hover:bg-[#8DA399] hover:scale-105 hover:shadow-xl transition-all duration-300" data-testid="gallery-upload-btn"><Camera size={22} /> Incarca Poze</Link>
           </div>
-        </div>
-      </section>
-
-      {/* RSVP CTA */}
-      <section className="py-24 md:py-32 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1528696466037-2883fc6c2d4a?w=1920&q=80')" }}></div>
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h2 className="font-serif text-4xl md:text-5xl text-[#2C3E30] mb-6">Va asteptam cu drag!</h2>
-          <p className="text-[#5C6B5F] text-lg mb-10 max-w-xl mx-auto">Confirmati participarea voastra pentru a ne ajuta cu organizarea acestei zile speciale.</p>
-          <Link to="/rsvp" className="inline-block px-12 py-5 bg-[#2C3E30] text-[#F9F7F2] font-serif text-lg rounded-full hover:bg-[#8DA399] hover:scale-105 hover:shadow-xl transition-all duration-300" data-testid="cta-rsvp-btn">Confirma Prezenta</Link>
         </div>
       </section>
 
