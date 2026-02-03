@@ -78,7 +78,7 @@ function HomePage() {
                 <Clock className="w-8 h-8 text-[#8DA399] group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="font-serif text-2xl text-[#2C3E30] mb-3">Ora</h3>
-              <p className="text-[#5C6B5F] text-lg">Ceremonia: 15:00</p>
+              <p className="text-[#5C6B5F] text-lg">Ceremonia religioasă: 15:00</p>
               <p className="text-[#5C6B5F] text-lg">Restaurant: 18:00</p>
             </div>
           </div>
@@ -93,7 +93,7 @@ function HomePage() {
             <h2 className="font-serif text-4xl md:text-5xl text-[#2C3E30]">Locatii</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Ceremonia */}
+            {/* Ceremonia religioasă */}
             <div className="bg-white p-8 md:p-10 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#8DA399] to-[#6B8A7A] flex items-center justify-center flex-shrink-0 shadow-lg">
@@ -107,7 +107,7 @@ function HomePage() {
               <p className="text-[#5C6B5F] mb-2 text-lg">Bucuresti, Romania</p>
               <p className="text-[#8DA399] font-medium mb-8">Ora: 15:00</p>
               <div className="flex flex-wrap gap-3">
-                <a href="https://maps.google.com/?q=Biserica+Adventista+Brancoveanu+Bucuresti" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#2C3E30] text-[#F9F7F2] font-serif text-sm rounded-full hover:bg-[#8DA399] hover:scale-105 transition-all duration-300" data-testid="church-maps-btn"><ExternalLink size={16} /> Google Maps</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Biserica+Adventista+Brancoveanu+Bucuresti" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#2C3E30] text-[#F9F7F2] font-serif text-sm rounded-full hover:bg-[#8DA399] hover:scale-105 transition-all duration-300" data-testid="church-maps-btn"><ExternalLink size={16} /> Google Maps</a>
                 <a href="https://waze.com/ul?q=Biserica+Adventista+Brancoveanu+Bucuresti" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#2C3E30] text-[#2C3E30] font-serif text-sm rounded-full hover:bg-[#2C3E30] hover:text-[#F9F7F2] hover:scale-105 transition-all duration-300" data-testid="church-waze-btn"><Navigation size={16} /> Waze</a>
               </div>
             </div>
@@ -125,7 +125,7 @@ function HomePage() {
               <p className="text-[#5C6B5F] mb-2 text-lg">Bolintin-Vale, Giurgiu</p>
               <p className="text-[#D4AF37] font-medium mb-8">Ora: 18:00</p>
               <div className="flex flex-wrap gap-3">
-                <a href="https://maps.google.com/?q=Domeniul+Monato+Bolintin+Vale" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#2C3E30] text-[#F9F7F2] font-serif text-sm rounded-full hover:bg-[#D4AF37] hover:scale-105 transition-all duration-300" data-testid="venue-maps-btn"><ExternalLink size={16} /> Google Maps</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Domeniul+Monato+Bolintin+Vale" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#2C3E30] text-[#F9F7F2] font-serif text-sm rounded-full hover:bg-[#D4AF37] hover:scale-105 transition-all duration-300" data-testid="venue-maps-btn"><ExternalLink size={16} /> Google Maps</a>
                 <a href="https://waze.com/ul?q=Domeniul+Monato+Bolintin+Vale" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#2C3E30] text-[#2C3E30] font-serif text-sm rounded-full hover:bg-[#2C3E30] hover:text-[#F9F7F2] hover:scale-105 transition-all duration-300" data-testid="venue-waze-btn"><Navigation size={16} /> Waze</a>
               </div>
             </div>

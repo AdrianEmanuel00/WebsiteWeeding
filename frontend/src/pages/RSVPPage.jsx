@@ -185,7 +185,7 @@ function RSVPPage() {
                 data-testid="add-guest-btn"
               >
                 <Plus size={22} />
-                Adauga persoana (copil, sot/sotie, etc.)
+                Adauga persoana (copil, partener, etc.)
               </button>
             )}
 
