@@ -28,7 +28,7 @@ function HomePage() {
       {/* Navigation */}
       <nav className={"fixed top-0 left-0 right-0 z-50 bg-[#FAF8F5]/80 backdrop-blur-md border-b border-[#3D4F4F]/5 transition-all duration-700 " + (visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0")}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link to="/" className="font-script text-3xl text-[#3D4F4F] hover:text-[#7D9B8C] transition-colors duration-300" data-testid="nav-logo">S & A</Link>
+          <Link to="/" className="font-script text-3xl text-[#3D4F4F] hover:text-[#7D9B8C] transition-colors duration-300" data-testid="nav-logo">S <span className="text-[#B8977E]">&</span> A</Link>
           <div className="hidden md:flex items-center gap-8">
             <button onClick={function() { scrollTo("details"); }} className="text-sm tracking-widest uppercase text-[#6B7B7B] hover:text-[#7D9B8C] transition-colors duration-300" data-testid="nav-details">Detalii</button>
             <button onClick={function() { scrollTo("locations"); }} className="text-sm tracking-widest uppercase text-[#6B7B7B] hover:text-[#7D9B8C] transition-colors duration-300" data-testid="nav-locations">Locatii</button>
@@ -45,7 +45,7 @@ function HomePage() {
           <p className="text-sm tracking-[0.3em] uppercase text-[#5A6B6B] mb-8 animate-fade-in font-medium" style={{animationDelay: "0.2s"}}>Va invitam la nunta noastra</p>
           <h1 className="font-script text-7xl md:text-9xl text-[#3D4F4F] mb-6 leading-tight">
             <span className="inline-block animate-fade-in" style={{animationDelay: "0.4s"}}>Sara</span>
-            <span className="text-[#B8977E] mx-2 md:mx-4 inline-block animate-pulse font-serif text-5xl md:text-7xl">&</span>
+            <span className="text-[#B8977E] mx-3 md:mx-5 inline-block animate-fade-in font-script text-6xl md:text-8xl" style={{animationDelay: "0.5s"}}>&</span>
             <span className="inline-block animate-fade-in" style={{animationDelay: "0.6s"}}>Adrian</span>
           </h1>
           <div className="flex items-center justify-center gap-4 text-[#5A6B6B] mb-12 animate-fade-in" style={{animationDelay: "0.8s"}}>
@@ -194,7 +194,7 @@ function HomePage() {
       <footer className="py-12 px-6 bg-[#3D4F4F] text-[#FAF8F5]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
-            <h3 className="font-script text-4xl mb-2">Sara & Adrian</h3>
+            <h3 className="font-script text-4xl mb-2">Sara <span className="text-[#B8977E]">&</span> Adrian</h3>
             <p className="text-[#7D9B8C]">28 Iunie 2026</p>
           </div>
           <div className="flex flex-wrap justify-center gap-8 mb-8 text-sm">
