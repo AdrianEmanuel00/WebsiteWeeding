@@ -1,4 +1,4 @@
-/* Wedding Website - Sara & Adrian - Modern Rounded Design */
+/* Wedding Website - Sara & Adrian */
 
 /* Location cards */
 .location-card {
@@ -8,70 +8,18 @@
 }
 
 .location-card:hover {
-  box-shadow: 0 20px 60px rgba(44, 62, 48, 0.15);
+  box-shadow: 0 20px 60px rgba(47, 65, 86, 0.15);
   transform: translateY(-8px);
 }
 
-/* Gallery grid */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Form inputs - modern rounded style */
+/* Form inputs */
 input, textarea, select {
   border-radius: 0.75rem !important;
   transition: all 0.3s ease;
 }
 
 input:focus, textarea:focus, select:focus {
-  box-shadow: 0 0 0 3px rgba(141, 163, 153, 0.2);
-}
-
-/* Buttons */
-.btn-primary {
-  background-color: #2C3E30;
-  color: #F9F7F2;
-  padding: 1rem 2rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-primary:hover {
-  background-color: #8DA399;
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(44, 62, 48, 0.2);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #2C3E30;
-  padding: 1rem 2rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  border: 2px solid #2C3E30;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-secondary:hover {
-  background-color: #2C3E30;
-  color: #F9F7F2;
-  transform: scale(1.05);
+  box-shadow: 0 0 0 3px rgba(86, 124, 141, 0.2);
 }
 
 /* Admin table */
@@ -81,28 +29,24 @@ input:focus, textarea:focus, select:focus {
 }
 
 .admin-table th {
-  background: #F0EFEA;
+  background: #C8D9E6;
   padding: 1rem;
   text-align: left;
   font-weight: 600;
-  color: #2C3E30;
-  border-bottom: 2px solid #8DA399;
+  color: #2F4156;
+  border-bottom: 2px solid #567C8D;
 }
 
 .admin-table td {
   padding: 1rem;
-  border-bottom: 1px solid rgba(44, 62, 48, 0.1);
-}
-
-.admin-table tr {
-  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(47, 65, 86, 0.1);
 }
 
 .admin-table tr:hover {
-  background: rgba(141, 163, 153, 0.05);
+  background: rgba(200, 217, 230, 0.3);
 }
 
-/* Photo moderation */
+/* Photo card */
 .photo-card {
   position: relative;
   overflow: hidden;
@@ -124,7 +68,7 @@ input:focus, textarea:focus, select:focus {
 .photo-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(44, 62, 48, 0.9), rgba(44, 62, 48, 0.5));
+  background: linear-gradient(to top, rgba(47, 65, 86, 0.9), rgba(47, 65, 86, 0.5));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -143,35 +87,35 @@ input:focus, textarea:focus, select:focus {
   background: white;
   padding: 2rem;
   border-radius: 1.5rem;
-  box-shadow: 0 4px 20px rgba(44, 62, 48, 0.08);
+  box-shadow: 0 4px 20px rgba(47, 65, 86, 0.08);
   transition: all 0.3s ease;
   text-align: center;
 }
 
 .stat-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(44, 62, 48, 0.12);
+  box-shadow: 0 8px 30px rgba(47, 65, 86, 0.12);
 }
 
 .stat-number {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
-  color: #8DA399;
+  color: #567C8D;
   font-weight: 600;
 }
 
 .stat-label {
-  color: #5C6B5F;
+  color: #2F4156;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: 0.5rem;
 }
 
-/* Loading */
+/* Loading spinner */
 .loading-spinner {
-  border: 3px solid #F0EFEA;
-  border-top: 3px solid #8DA399;
+  border: 3px solid #C8D9E6;
+  border-top: 3px solid #567C8D;
   border-radius: 50%;
   width: 24px;
   height: 24px;
@@ -183,46 +127,6 @@ input:focus, textarea:focus, select:focus {
   100% { transform: rotate(360deg); }
 }
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
-}
-
-/* Card hover effects */
-.card-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(44, 62, 48, 0.15);
-}
-
-/* Modern rounded containers */
-.rounded-container {
-  border-radius: 1.5rem;
-  overflow: hidden;
-}
-
-/* Gradient backgrounds */
-.gradient-sage {
-  background: linear-gradient(135deg, #8DA399 0%, #6B8A7A 100%);
-}
-
-.gradient-gold {
-  background: linear-gradient(135deg, #D4AF37 0%, #B8963A 100%);
-}
-
-/* Pulse animation for icons */
-.pulse-icon {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
 }
