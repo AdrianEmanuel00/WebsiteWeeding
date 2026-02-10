@@ -120,7 +120,7 @@ function HomePage() {
             </div>
             <div className="bg-white p-8 md:p-10 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#B8977E] to-[#9A7D66] flex items-center justify-center flex-shrink-0 shadow-lg">
+                <div className="w-14 h-14 rounded-full bg-[rgba(47,65,86,0.9)] flex items-center justify-center flex-shrink-0 shadow-lg">
                   <MapPin className="w-7 h-7 text-white" />
                 </div>
                 <div>
