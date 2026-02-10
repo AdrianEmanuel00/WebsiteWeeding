@@ -354,7 +354,7 @@ async def get_stats(request: Request, _=Depends(verify_token)):
 # QR Code
 @api_router.get("/qrcode")
 async def generate_qrcode():
-    site_url = os.environ.get('SITE_URL', 'https://nunta-romantic.preview.emergentagent.com')
+    site_url = os.environ.get('SITE_URL', 'https://love-story-53.preview.emergentagent.com')
     
     qr = qrcode.QRCode(
         version=1,
