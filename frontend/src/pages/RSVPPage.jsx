@@ -91,6 +91,7 @@ function RSVPPage() {
             </div>
             <h1 className="font-script text-4xl md:text-5xl text-[#2F4156] mb-2">Confirma Prezenta</h1>
             <p className="text-[#567C8D]">Va rugam sa confirmati participarea la nunta noastra</p>
+            <p className="text-[#2F4156] font-medium mt-3">📅 Termen limita: <span className="text-[#567C8D]">15 Mai 2026</span></p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in" style={{animationDelay: "0.2s"}}>

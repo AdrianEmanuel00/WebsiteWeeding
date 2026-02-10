@@ -149,7 +149,8 @@ function HomePage() {
               <Heart className="w-10 h-10 text-white" />
             </div>
             <h2 className="font-script text-5xl md:text-6xl text-[#2F4156] mb-6">Va asteptam cu drag!</h2>
-            <p className="text-[#567C8D] text-lg mb-10">Confirmati participarea voastra pentru a ne ajuta cu organizarea acestei zile speciale.</p>
+            <p className="text-[#567C8D] text-lg mb-4">Confirmati participarea voastra pentru a ne ajuta cu organizarea acestei zile speciale.</p>
+            <p className="text-[#2F4156] font-medium text-lg mb-10">📅 Termen limita confirmari: <span className="text-[#567C8D]">15 Mai 2026</span></p>
             <Link to="/rsvp" className="inline-block px-12 py-5 bg-[#2F4156] text-white font-serif text-lg rounded-full hover:bg-[#567C8D] hover:scale-105 hover:shadow-xl transition-all duration-300" data-testid="cta-rsvp-btn">Confirma Prezenta</Link>
           </div>
         </div>
