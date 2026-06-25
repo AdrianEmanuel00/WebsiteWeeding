@@ -34,7 +34,13 @@ function HomePage() {
       {/* Navigation - Transparent */}
       <nav className={"fixed top-0 left-0 right-0 z-50 transition-all duration-500 " + (scrolled ? "bg-[#F5EFEB]/90 backdrop-blur-md shadow-sm" : "bg-transparent") + " " + (visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0")}>
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-          <Link to="/" className={"font-script text-3xl transition-colors duration-300 " + (scrolled ? "text-[#2F4156]" : "text-white drop-shadow-lg")} data-testid="nav-logo">S <span className="text-[#B8977E]">&</span> A</Link>
+          <Link
+            to="/"
+            className={"font-script text-3xl transition-colors duration-300 " + (scrolled ? "text-[#2F4156]" : "text-white drop-shadow-lg")}
+            data-testid="nav-logo"
+          >
+            S <span className="text-[rgba(47,65,86,0.9)]">&</span> A
+          </Link>
           <div className="hidden md:flex items-center gap-8">
             <button onClick={function() { scrollTo("details"); }} className={"text-sm tracking-widest uppercase transition-colors duration-300 " + (scrolled ? "text-[#567C8D] hover:text-[#2F4156]" : "text-white/90 hover:text-white drop-shadow")} data-testid="nav-details">Detalii</button>
             <button onClick={function() { scrollTo("locations"); }} className={"text-sm tracking-widest uppercase transition-colors duration-300 " + (scrolled ? "text-[#567C8D] hover:text-[#2F4156]" : "text-white/90 hover:text-white drop-shadow")} data-testid="nav-locations">Locatii</button>
@@ -45,7 +51,10 @@ function HomePage() {
 
       {/* Hero */}
       <section className="min-h-screen flex flex-col justify-center items-center text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center scale-105" style={{ backgroundImage: "url('" + HERO_IMAGE + "')" }}></div>
+        <div
+          className="absolute inset-0 bg-cover scale-105"
+          style={{ backgroundImage: "url('" + HERO_IMAGE + "')", backgroundPosition: "center 35%" }}
+        ></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#F5EFEB]"></div>
         <div className={"relative z-10 px-6 transition-all duration-1000 " + (visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0")}>
           <p className="text-sm tracking-[0.3em] uppercase text-white/90 mb-8 animate-fade-in font-medium drop-shadow-lg" style={{animationDelay: "0.2s"}}>Va invitam la nunta noastra</p>
@@ -64,33 +73,6 @@ function HomePage() {
         <button onClick={function() { scrollTo("details"); }} className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/80 animate-bounce hover:text-white transition-colors drop-shadow" data-testid="scroll-down-btn">
           <ChevronDown size={32} />
         </button>
-      </section>
-
-      {/* Details */}
-      <section id="details" className="py-24 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-sm tracking-[0.2em] uppercase text-[#567C8D] mb-4">Salveaza data</p>
-            <h2 className="font-script text-5xl md:text-6xl text-[#2F4156]">28 Iunie 2026</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="text-center p-10 bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
-              <div className="w-16 h-16 bg-[#C8D9E6] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#567C8D] group-hover:scale-110 transition-all duration-300">
-                <Calendar className="w-8 h-8 text-[#567C8D] group-hover:text-white transition-colors duration-300" />
-              </div>
-              <h3 className="font-script text-3xl text-[#2F4156] mb-3">Data</h3>
-              <p className="text-[#567C8D] text-lg">Duminica, 28 Iunie 2026</p>
-            </div>
-            <div className="text-center p-10 bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
-              <div className="w-16 h-16 bg-[#C8D9E6] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#567C8D] group-hover:scale-110 transition-all duration-300">
-                <Clock className="w-8 h-8 text-[#567C8D] group-hover:text-white transition-colors duration-300" />
-              </div>
-              <h3 className="font-script text-3xl text-[#2F4156] mb-3">Ora</h3>
-              <p className="text-[#567C8D] text-lg">Ceremonia: 15:00</p>
-              <p className="text-[#567C8D] text-lg">Restaurant: 18:00</p>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Locations */}
@@ -161,9 +143,31 @@ function HomePage() {
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm tracking-[0.2em] uppercase text-[#567C8D] mb-4">Programul zilei</p>
           <h2 className="font-script text-5xl md:text-6xl text-[#2F4156] mb-12">Program</h2>
-          <div className="p-12 bg-white rounded-3xl shadow-lg">
-            <p className="font-accent text-2xl italic text-[#567C8D]">Programul detaliat va fi publicat in curand.</p>
-            <p className="text-[#2F4156] mt-4">Va multumim pentru rabdare!</p>
+          <div className="p-10 md:p-14 bg-white rounded-3xl shadow-lg">
+            <ul className="space-y-4">
+              {[
+                "Intrare mire",
+                "Intrare mireasă",
+                "Adi - cuvânt de bun venit",
+                "Cântare de deschidere și rugăciune",
+                "Moment muzical coral - Enjoy",
+                "Cuvânt - Adelina Olteanu Rotaru",
+                "Piesă solo - Anda Clara Burduloi",
+                "Cuvânt - Vicky Burduloi",
+                "Grup bărbătesc - Poveste de dragoste",
+                "Cuvânt - Emma Văraru",
+                "Moment Muzical Coral - Enjoy",
+                "Cuvânt - Daniel și Rahela Dina",
+                "Cuvânt - Iarca Gabi",
+                "Binecuvântare - Iarca Gabi",
+                "Anunțuri - Adi",
+                "Ieșire Miri",
+              ].map(function(item, idx) { return (
+                <li key={idx} className="font-accent text-lg md:text-xl italic text-[#2F4156] tracking-wide">
+                  {item}
+                </li>
+              ); })}
+            </ul>
           </div>
         </div>
       </section>
@@ -199,7 +203,7 @@ function HomePage() {
       <footer className="py-12 px-6 bg-[#2F4156] text-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
-            <h3 className="font-script text-4xl mb-2">Sara <span className="text-[rgba(47,65,86,0.9)]">&</span> Adrian</h3>
+            <h3 className="font-script text-4xl mb-2">Sara <span className="text-white">&</span> Adrian</h3>
             <p className="text-[#C8D9E6]">28 Iunie 2026</p>
           </div>
           <div className="flex flex-wrap justify-center gap-8 mb-8 text-sm">
