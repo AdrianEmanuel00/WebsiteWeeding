@@ -42,8 +42,8 @@ function HomePage() {
             S <span className="text-[rgba(47,65,86,0.9)]">&</span> A
           </Link>
           <div className="hidden md:flex items-center gap-8">
-            <button onClick={function() { scrollTo("details"); }} className={"text-sm tracking-widest uppercase transition-colors duration-300 " + (scrolled ? "text-[#567C8D] hover:text-[#2F4156]" : "text-white/90 hover:text-white drop-shadow")} data-testid="nav-details">Detalii</button>
             <button onClick={function() { scrollTo("locations"); }} className={"text-sm tracking-widest uppercase transition-colors duration-300 " + (scrolled ? "text-[#567C8D] hover:text-[#2F4156]" : "text-white/90 hover:text-white drop-shadow")} data-testid="nav-locations">Locatii</button>
+            <button onClick={function() { scrollTo("program"); }} className={"text-sm tracking-widest uppercase transition-colors duration-300 " + (scrolled ? "text-[#567C8D] hover:text-[#2F4156]" : "text-white/90 hover:text-white drop-shadow")} data-testid="nav-program">Program</button>
             <Link to="/gallery" className={"text-sm tracking-widest uppercase transition-colors duration-300 " + (scrolled ? "text-[#567C8D] hover:text-[#2F4156]" : "text-white/90 hover:text-white drop-shadow")} data-testid="nav-gallery">Galerie</Link>
           </div>
         </div>
@@ -68,9 +68,19 @@ function HomePage() {
             <span className="font-accent text-2xl md:text-3xl italic">28 Iunie 2026</span>
             <span className="w-16 h-px bg-white/60"></span>
           </div>
-          <Link to="/rsvp" className="inline-block px-10 py-4 bg-[#2F4156] text-white font-serif text-lg rounded-full hover:bg-[#567C8D] hover:scale-105 hover:shadow-xl transition-all duration-300 animate-fade-in" style={{animationDelay: "1s"}} data-testid="hero-rsvp-btn">Confirma Prezenta</Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{animationDelay: "1s"}}>
+            <button onClick={function() { scrollTo("program"); }} className="w-full sm:w-auto px-8 py-4 bg-white/15 backdrop-blur-sm border border-white/50 text-white font-serif text-base rounded-full hover:bg-white hover:text-[#2F4156] hover:scale-105 hover:shadow-xl transition-all duration-300" data-testid="btn-program-biserica">
+              Program Biserică
+            </button>
+            <Link to="/mese" className="w-full sm:w-auto px-8 py-4 bg-[#2F4156]/80 backdrop-blur-sm border border-[#2F4156] text-white font-serif text-base rounded-full hover:bg-[#2F4156] hover:scale-105 hover:shadow-xl transition-all duration-300" data-testid="btn-mese">
+              Vezi Mese
+            </Link>
+            <button onClick={function() { scrollTo("program-restaurant"); }} className="w-full sm:w-auto px-8 py-4 bg-white/15 backdrop-blur-sm border border-white/50 text-white font-serif text-base rounded-full hover:bg-white hover:text-[#2F4156] hover:scale-105 hover:shadow-xl transition-all duration-300" data-testid="btn-program-restaurant">
+              Program Restaurant
+            </button>
+          </div>
         </div>
-        <button onClick={function() { scrollTo("details"); }} className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/80 animate-bounce hover:text-white transition-colors drop-shadow" data-testid="scroll-down-btn">
+        <button onClick={function() { scrollTo("locations"); }} className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/80 animate-bounce hover:text-white transition-colors drop-shadow" data-testid="scroll-down-btn">
           <ChevronDown size={32} />
         </button>
       </section>
@@ -121,53 +131,51 @@ function HomePage() {
         </div>
       </section>
 
-      {/* RSVP CTA */}
-      <section className="py-24 md:py-32 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('" + CTA_IMAGE + "')" }}></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F5EFEB]/95 via-[#F5EFEB]/80 to-[#F5EFEB]/60"></div>
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="max-w-xl">
-            <div className="w-20 h-20 bg-gradient-to-br from-[#567C8D] to-[#2F4156] rounded-full flex items-center justify-center mb-8 shadow-lg">
-              <Heart className="w-10 h-10 text-white" />
-            </div>
-            <h2 className="font-script text-5xl md:text-6xl text-[#2F4156] mb-6">Va asteptam cu drag!</h2>
-            <p className="text-[#567C8D] text-lg mb-4">Confirmati participarea voastra pentru a ne ajuta cu organizarea acestei zile speciale.</p>
-            <p className="text-[#2F4156] font-medium text-lg mb-10">📅 Termen limita confirmari: <span className="text-[#567C8D]">15 Mai 2026</span></p>
-            <Link to="/rsvp" className="inline-block px-12 py-5 bg-[#2F4156] text-white font-serif text-lg rounded-full hover:bg-[#567C8D] hover:scale-105 hover:shadow-xl transition-all duration-300" data-testid="cta-rsvp-btn">Confirma Prezenta</Link>
-          </div>
-        </div>
-      </section>
+      {/* Program Cununie */}
+      <section id="program" className="py-24 md:py-32 px-6 bg-gradient-to-b from-[#F5EFEB] to-[#C8D9E6]/20">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-sm tracking-[0.2em] uppercase text-[#567C8D] mb-4">Biserica Adventistă Brâncoveanu · Ora 15:00</p>
+          <h2 className="font-script text-5xl md:text-6xl text-[#2F4156] mb-3">Program</h2>
+          <p className="font-accent text-xl italic text-[#567C8D] mb-12">Cununie Religioasă</p>
 
-      {/* Program */}
-      <section id="program" className="py-24 md:py-32 px-6 bg-gradient-to-b from-[#F5EFEB] to-[#C8D9E6]/30">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm tracking-[0.2em] uppercase text-[#567C8D] mb-4">Programul zilei</p>
-          <h2 className="font-script text-5xl md:text-6xl text-[#2F4156] mb-12">Program</h2>
-          <div className="p-10 md:p-14 bg-white rounded-3xl shadow-lg">
-            <ul className="space-y-4">
+          <div className="relative bg-white rounded-3xl shadow-lg overflow-hidden">
+            {/* Top decorative bar */}
+            <div className="h-1.5 bg-gradient-to-r from-[#C8D9E6] via-[#567C8D] to-[#C8D9E6]"></div>
+
+            <ul className="py-10 px-8 md:px-14 space-y-0">
               {[
                 "Intrare mire",
                 "Intrare mireasă",
-                "Adi - cuvânt de bun venit",
+                "Adi — cuvânt de bun venit",
                 "Cântare de deschidere și rugăciune",
-                "Moment muzical coral - Enjoy",
-                "Cuvânt - Adelina Olteanu Rotaru",
-                "Piesă solo - Anda Clara Burduloi",
-                "Cuvânt - Vicky Burduloi",
-                "Grup bărbătesc - Poveste de dragoste",
-                "Cuvânt - Emma Văraru",
-                "Moment Muzical Coral - Enjoy",
-                "Cuvânt - Daniel și Rahela Dina",
-                "Cuvânt - Iarca Gabi",
-                "Binecuvântare - Iarca Gabi",
-                "Anunțuri - Adi",
+                "Moment muzical coral · Enjoy",
+                "Cuvânt · Adelina Olteanu Rotaru",
+                "Piesă solo · Anda Clara Burduloi",
+                "Cuvânt · Vicky Burduloi",
+                "Grup bărbătesc · Poveste de dragoste",
+                "Cuvânt · Emma Văraru",
+                "Moment Muzical Coral · Enjoy",
+                "Cuvânt · Daniel și Rahela Dina",
+                "Cuvânt · Iarca Gabi",
+                "Binecuvântare · Iarca Gabi",
+                "Anunțuri · Adi",
                 "Ieșire Miri",
-              ].map(function(item, idx) { return (
-                <li key={idx} className="font-accent text-lg md:text-xl italic text-[#2F4156] tracking-wide">
-                  {item}
+              ].map(function(item, idx, arr) { return (
+                <li key={idx}>
+                  <p className="font-accent text-lg md:text-xl italic text-[#2F4156] py-3 tracking-wide">{item}</p>
+                  {idx < arr.length - 1 && (
+                    <div className="flex items-center justify-center gap-3">
+                      <div className="h-px flex-1 bg-[#C8D9E6]/60"></div>
+                      <div className="w-1 h-1 rounded-full bg-[#567C8D]/40"></div>
+                      <div className="h-px flex-1 bg-[#C8D9E6]/60"></div>
+                    </div>
+                  )}
                 </li>
               ); })}
             </ul>
+
+            {/* Bottom decorative bar */}
+            <div className="h-1.5 bg-gradient-to-r from-[#C8D9E6] via-[#567C8D] to-[#C8D9E6]"></div>
           </div>
         </div>
       </section>
@@ -212,7 +220,11 @@ function HomePage() {
             <Link to="/gallery" className="text-white/80 hover:text-white hover:scale-105 transition-all duration-300" data-testid="footer-gallery">Galerie</Link>
             <Link to="/privacy" className="text-white/80 hover:text-white hover:scale-105 transition-all duration-300" data-testid="footer-privacy">Confidentialitate</Link>
           </div>
-          <div className="text-center text-white/50 text-sm"><p>Made with love for Sara & Adrian</p></div>
+          <div className="border-t border-white/10 pt-8 mt-4 text-center">
+            <p className="text-[#C8D9E6] text-sm mb-4">Termen limită confirmări: <span className="text-white font-medium">15 Mai 2026</span></p>
+            <Link to="/rsvp" className="inline-block px-8 py-3 border border-white/30 text-white/80 text-sm font-serif rounded-full hover:bg-white/10 hover:text-white transition-all duration-300" data-testid="footer-rsvp-btn">Confirmă Prezența</Link>
+          </div>
+          <div className="text-center text-white/30 text-xs mt-8"><p>Made with love for Sara & Adrian</p></div>
         </div>
       </footer>
     </div>
