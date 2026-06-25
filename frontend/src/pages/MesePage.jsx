@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Search, MapPin, UtensilsCrossed, X } from "lucide-react";
+import { Search, MapPin, UtensilsCrossed, X, Users } from "lucide-react";
 
 var MENIU_LABEL = {
   "C": "Meniu Carne",
@@ -284,6 +284,9 @@ function MesePage() {
   }
 
   var menuKey = selected && selected.menu ? (selected.menu === "Copil" ? "copil" : selected.menu) : null;
+  var tablemates = selected
+    ? GUESTS.filter(function(g) { return g.table === selected.table && g.name !== selected.name; })
+    : [];
 
   return (
     <div className="min-h-screen bg-[#F5EFEB] flex flex-col items-center justify-start px-6 py-16">
@@ -380,6 +383,29 @@ function MesePage() {
                   </div>
                 )}
               </div>
+
+              {tablemates.length > 0 && (
+                <div className="mt-6 bg-[#F5EFEB] rounded-2xl px-7 py-5 text-left">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#567C8D] to-[#2F4156] flex items-center justify-center flex-shrink-0 shadow">
+                      <Users className="w-5 h-5 text-white" />
+                    </div>
+                    <p className="text-xs tracking-widest uppercase text-[#567C8D] font-medium">Colegii tăi de masă</p>
+                  </div>
+                  <ul className="flex flex-col gap-2">
+                    {tablemates.map(function(g, i) { return (
+                      <li key={i} className="flex items-center justify-between py-1.5 border-b border-[#C8D9E6]/50 last:border-0">
+                        <span className="text-[#2F4156] font-serif text-sm">{g.name}</span>
+                        {g.menu && (
+                          <span className={"text-xs px-2 py-0.5 rounded-full font-medium " + (MENIU_COLOR[g.menu === "Copil" ? "copil" : g.menu] || "bg-gray-200 text-gray-700")}>
+                            {MENIU_LABEL[g.menu === "Copil" ? "copil" : g.menu] || g.menu}
+                          </span>
+                        )}
+                      </li>
+                    ); })}
+                  </ul>
+                </div>
+              )}
 
               <p className="text-[#567C8D] text-sm mt-8 font-accent italic">Ne bucurăm să te avem alături! 🤍</p>
             </div>

@@ -104,7 +104,7 @@ function HomePage() {
                 </div>
               </div>
               <p className="text-[#567C8D] mb-2 text-lg">Bucuresti, Romania</p>
-              <p className="text-[#2F4156] font-medium mb-8">Ora: 15:00</p>
+              <p className="text-[#2F4156] font-medium mb-8">Ora: 14:00</p>
               <div className="flex flex-wrap gap-3">
                 <a href="https://www.google.com/maps/search/?api=1&query=Biserica+Adventista+Brancoveanu+Bucuresti" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#2F4156] text-white font-medium text-sm rounded-full hover:bg-[#567C8D] hover:scale-105 transition-all duration-300" data-testid="church-maps-btn"><ExternalLink size={16} /> Google Maps</a>
                 <a href="https://waze.com/ul?q=Biserica+Adventista+Brancoveanu+Bucuresti" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#2F4156] text-[#2F4156] font-medium text-sm rounded-full hover:bg-[#2F4156] hover:text-white hover:scale-105 transition-all duration-300" data-testid="church-waze-btn"><Navigation size={16} /> Waze</a>
@@ -134,7 +134,7 @@ function HomePage() {
       {/* Program Cununie */}
       <section id="program" className="py-24 md:py-32 px-6 bg-gradient-to-b from-[#F5EFEB] to-[#C8D9E6]/20">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm tracking-[0.2em] uppercase text-[#567C8D] mb-4">Biserica Adventistă Brâncoveanu · Ora 15:00</p>
+          <p className="text-sm tracking-[0.2em] uppercase text-[#567C8D] mb-4">Biserica Adventistă Brâncoveanu · Ora 14:00</p>
           <h2 className="font-script text-5xl md:text-6xl text-[#2F4156] mb-3">Program</h2>
           <p className="font-accent text-xl italic text-[#567C8D] mb-12">Cununie Religioasă</p>
 
