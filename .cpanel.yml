@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/hzdxzsfj/adrian-si-sara-invitatie.aerdigital.ro/public_html/
+    - /bin/cp -rf frontend/build/. $DEPLOYPATH
