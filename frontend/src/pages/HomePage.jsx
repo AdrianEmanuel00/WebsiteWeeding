@@ -121,7 +121,7 @@ function HomePage() {
                 </div>
               </div>
               <p className="text-[#567C8D] mb-2 text-lg">Bolintin-Vale, Giurgiu</p>
-              <p className="text-[#2F4156] font-medium mb-8">Ora: 18:00</p>
+              <p className="text-[#2F4156] font-medium mb-8">Ora: 17:00</p>
               <div className="flex flex-wrap gap-3">
                 <a href="https://www.google.com/maps/search/?api=1&query=Domeniul+Monato+Bolintin+Vale" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#2F4156] text-white font-medium text-sm rounded-full hover:bg-[#B8977E] hover:scale-105 transition-all duration-300" data-testid="venue-maps-btn"><ExternalLink size={16} /> Google Maps</a>
                 <a href="https://waze.com/ul?q=Domeniul+Monato+Bolintin+Vale" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#2F4156] text-[#2F4156] font-medium text-sm rounded-full hover:bg-[#2F4156] hover:text-white hover:scale-105 transition-all duration-300" data-testid="venue-waze-btn"><Navigation size={16} /> Waze</a>
