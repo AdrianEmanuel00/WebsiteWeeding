@@ -27,7 +27,7 @@ var GUESTS = [
   // Masa 1
   { name: "Iulia Litoiu", table: 1, menu: "C" },
   { name: "Andreea Serban", table: 1, menu: "C" },
-  { name: "Ervin Schiopu", table: 1, menu: "C" },
+  { name: "Ervin Popescu", table: 1, menu: "C" },
   { name: "Laura Ilinca", table: 1, menu: "VFP" },
   { name: "Darius Schiopu", table: 1, menu: "C" },
   { name: "Evelina Limbosanu", table: 1, menu: "C" },
@@ -36,7 +36,7 @@ var GUESTS = [
   { name: "Albert Stan", table: 1, menu: "C" },
 
   // Masa 2
-  { name: "Elisei Petreaca", table: 2, menu: "S" },
+  { name: "Elisei Petreaca", table: 2, menu: "VS" },
   { name: "Eduard Paraschiv", table: 2, menu: "C" },
   { name: "Cristian Tacu", table: 2, menu: "C" },
   { name: "Alexia Tacu", table: 2, menu: "C" },
@@ -130,7 +130,7 @@ var GUESTS = [
 
   // Masa 9
   { name: "Adelina Olteanu Rotaru", table: 9, menu: "C" },
-  { name: "Nelu Olteanu", table: 9, menu: "S" },
+  { name: "Nelu Olteanu", table: 9, menu: "CS" },
   { name: "Marius Lupu", table: 9, menu: "C" },
   { name: "Claudiu Lupu", table: 9, menu: "C" },
   { name: "Madalina Nitu", table: 9, menu: "C" },
