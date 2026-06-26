@@ -246,7 +246,7 @@ var GUESTS = [
   { name: "Anca Rarinca", table: "Staff", menu: "VP" },
   { name: "Andrei Paraschiv", table: "Staff", menu: "C" },
   { name: "Darian Vasilescu", table: "Staff", menu: "VP" },
-  { name: "Larisa Faraon", table: "Staff", menu: "C" },
+  { name: "Larisa Faraon", table: 17, menu: "C" },
   { name: "Adrian Dragomir", table: "Staff", menu: "C" },
   { name: "Sebi Mirica", table: "Staff", menu: "VP" },
   { name: "Alin Vaduva", table: "Staff", menu: "C" },
