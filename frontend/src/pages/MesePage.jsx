@@ -108,6 +108,7 @@ var GUESTS = [
   { name: "Luca Matei", table: 7, menu: "VP" },
   { name: "Alecsandra Matei", table: 7, menu: "VP" },
   { name: "Laura Kusmuz", table: 7, menu: "C" },
+  { name: "Beni Kusmuz", table: 7, menu: "C" },
   { name: "Sebi Brăușor", table: 7, menu: "VP" },
   { name: "Ciolacu Larisa", table: 7, menu: "VP" },
   { name: "Gabita Elisei", table: 7, menu: "C" },
