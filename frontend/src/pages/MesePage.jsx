@@ -53,7 +53,7 @@ var GUESTS = [
   { name: "Matias Constantin", table: 3, menu: "C" },
   { name: "Amalia Preda", table: 3, menu: "C" },
   { name: "Daniel Ciornei", table: 3, menu: "C" },
-  { name: "Oana Ciornei", table: 3, menu: "VP" },
+  { name: "Anca Ciornei", table: 3, menu: "VP" },
   { name: "Daniel Hojbota", table: 3, menu: "C" },
   { name: "Bianca Olteanu", table: 3, menu: "C" },
   { name: "Rafael Dina", table: 3, menu: "C" },
