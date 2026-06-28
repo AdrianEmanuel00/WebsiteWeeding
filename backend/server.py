@@ -81,6 +81,7 @@ class Photo(BaseModel):
     filename: str
     original_filename: str
     uploader_name: Optional[str] = None
+    media_type: str = "photo"  # photo/video
     status: str = "pending"  # pending/approved/rejected
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
@@ -231,37 +232,50 @@ UPLOAD_DIR = ROOT_DIR / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 @api_router.post("/photos/upload")
-@limiter.limit("5/minute")
+@limiter.limit("30/minute")
 async def upload_photo(
     request: Request,
     file: UploadFile = File(...),
-    uploader_name: Optional[str] = None
+    uploader_name: Optional[str] = None,
+    media_type: Optional[str] = "photo"
 ):
     # Validate file type
-    allowed_types = ['image/jpeg', 'image/png', 'image/heic', 'image/heif']
-    if file.content_type not in allowed_types:
-        raise HTTPException(status_code=400, detail="Tip fișier invalid. Sunt acceptate: JPG, PNG, HEIC")
-    
+    allowed_photo_types = ['image/jpeg', 'image/png', 'image/heic', 'image/heif']
+    allowed_video_types = ['video/mp4', 'video/quicktime', 'video/mov', 'video/avi', 'video/x-msvideo']
+    all_allowed = allowed_photo_types + allowed_video_types
+    if file.content_type not in all_allowed:
+        raise HTTPException(status_code=400, detail="Tip fișier invalid. Sunt acceptate: JPG, PNG, HEIC, MP4, MOV")
+
+    # Detect actual media type from content_type
+    detected_type = "video" if file.content_type in allowed_video_types else "photo"
+
+    # Size limits: 20MB for photos, 500MB for videos
+    max_size = 524288000 if detected_type == "video" else 20971520
+    content = await file.read()
+    if len(content) > max_size:
+        limit_label = "500MB" if detected_type == "video" else "20MB"
+        raise HTTPException(status_code=400, detail=f"Fișierul depășește limita de {limit_label}")
+
     # Generate unique filename
-    ext = file.filename.split('.')[-1] if '.' in file.filename else 'jpg'
+    ext = file.filename.split('.')[-1] if '.' in file.filename else ('mp4' if detected_type == 'video' else 'jpg')
     unique_filename = f"{uuid.uuid4()}.{ext}"
     file_path = UPLOAD_DIR / unique_filename
-    
+
     # Save file
-    content = await file.read()
     with open(file_path, 'wb') as f:
         f.write(content)
-    
-    # Create photo record - auto approved
+
+    # Create record - auto approved
     photo = Photo(
         filename=unique_filename,
         original_filename=file.filename,
         uploader_name=uploader_name,
+        media_type=detected_type,
         status="approved"
     )
     await db.photos.insert_one(photo.model_dump())
-    
-    return {"message": "Poza a fost încărcată și așteaptă aprobare", "photo": photo.model_dump()}
+
+    return {"message": "Fișierul a fost încărcat cu succes", "photo": photo.model_dump()}
 
 @api_router.get("/photos/file/{filename}")
 async def get_photo_file(filename: str):
